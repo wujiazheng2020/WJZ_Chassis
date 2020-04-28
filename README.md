@@ -11,14 +11,14 @@ QQ群：710805413</br>
 1.ros (based on ros)
 # contents:
 ## 1.Diff Robot
-具体可见/doc介绍，代码如下：
-`now_pose.x  += v*dt*cos(now_pose.th);`
-`now_pose.y  += v*dt*sin(now_pose.th);`
-`now_pose.th += w*dt;`
+具体可见/doc介绍，代码如下：</br>
+`now_pose.x  += v*dt*cos(now_pose.th);`</br>
+`now_pose.y  += v*dt*sin(now_pose.th);`</br>
+`now_pose.th += w*dt;`</br>
 需要机器人用USB或者通过在机器人上放一个MCU如stm32，通过stm32读取驱动器/编码器的信息传输给PC段/MPU端，而PC端收到后发送odom消息和相应tf，同时如果PC端收到上层算法的消息，则发送给机器人的MCU端，该程序是PC端程序，因为stm32那个很简单就不写了。
 ## 2.Ackermann Steering
-具体可见/doc介绍，代码如下：
-`now_pose.x  += v*dt*cos(now_pose.th);`
-`now_pose.y  += v*dt*sin(now_pose.th);`
-`now_pose.th += v/wheel_base*tan(steer)*dt;`
+具体可见/doc介绍，代码如下：</br>
+`now_pose.x  += v*dt*cos(now_pose.th);`</br>
+`now_pose.y  += v*dt*sin(now_pose.th);`</br>
+`now_pose.th += v/wheel_base*tan(steer)*dt;`</br>
 需要无人车支持CAN并通过USBCAN连接到PC端，然后通过其他程序转述，这个只是例子，为了展现其运动学模型。
