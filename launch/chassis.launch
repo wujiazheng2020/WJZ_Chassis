@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="WJZ_Chassis" type="WJZ_Chassis" name ="WJZ_Chassis" output="screen">
+        <param name="USB_COM" value="/dev/ttyUSB0"/>
+        <param name="Baud" value="115200"/>
+        <param name="Orgin_x" value="0.0"/>
+        <param name="Orgin_y" value="0.0"/>
+        <param name="Orgin_th" value="0.0"/>
+        <param name="wheel_base" value="2.0"/>
+        <param name="mode" value="4"/>
+    </node>
+</launch>

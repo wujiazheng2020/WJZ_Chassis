@@ -1,0 +1,12 @@
+std_msgs/Header header
+int8 mode
+float64 v
+float64 w
+float64 d_x
+float64 d_y
+float64 d_z
+float64 d_t
+float64 left_v
+float64 right_v
+float64 a
+float64 steer
