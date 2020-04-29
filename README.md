@@ -1,4 +1,4 @@
-# WJZ_Chassis
+# WJZ_Chassis 1.01
 概述：ROS机器人底盘驱动，PC端包，主要针对差分驱动机器人和阿克曼转向的无人驾驶汽车，如果发现BUG或者需要我更新新的算法,或者需要技术合作,可以联系我修改或者pull request，如果觉得这个项目好请给我颗星星或者branch，这个项目会不断更新，谢谢大家！</br>
 Overview: ROS chassis pkg for Differential drive robot and Ackermann steering robot like autocar,If you find a bug,or need me to update the new algorithm,or need technical cooperation, you can contact me to modify or pull the request. If you think this project is good, please give me a star or branch. This project will be constantly updated, thank you!</br>
 BLOG:https://blog.csdn.net/qq_38588806</br>
