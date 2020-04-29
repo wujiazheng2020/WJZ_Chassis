@@ -185,6 +185,7 @@ namespace wjz_chassis{
                     odom_now.pose.pose.orientation = th_q;
                     odom_now.twist.twist.linear.x  = v*cos(now_pose.th);
                     odom_now.twist.twist.linear.y  = v*sin(now_pose.th);
+                    odom_pub.publish(odom_now);
 
                     pre_time = ros::Time::now().toSec();
                 }
@@ -197,7 +198,7 @@ namespace wjz_chassis{
         Ros_Param_Reading();
         USB_Setting();
         control_sub = node_.subscribe<WJZ_Chassis::Control_info>("/control_to_base", 10, &Chassis_cpp::Control_info_callback, this);
-        Odom_pub    = node_.advertise<nav_msgs::Odometry>("/wheel_odom",10,true);
+        odom_pub    = node_.advertise<nav_msgs::Odometry>("/wheel_odom",10,true);
         Read_chassis_thread = new boost::thread(&Chassis_cpp::Chassis_Reader_Function,this);
     }
 }

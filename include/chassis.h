@@ -46,8 +46,7 @@ namespace wjz_chassis{
         ros::NodeHandle node_;
         ros::NodeHandle private_nh_;
         ros::Subscriber control_sub;
-        ros::Publisher Chassis_pub;
-        ros::Publisher Odom_pub;
+        ros::Publisher odom_pub;
         boost::thread *Read_chassis_thread;
         boost::mutex control_lock;
         bool Chassis_Reader_Running;
