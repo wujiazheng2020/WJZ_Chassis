@@ -6,6 +6,7 @@ namespace wjz_chassis{
         x  = 0.0;
         y  = 0.0;
         th = 0.0;
+        v  = 0.0;
     }
 
     wheel_pose2d::~wheel_pose2d(){}
@@ -80,6 +81,7 @@ namespace wjz_chassis{
         now_pose.x  += orgin_pose.x;
         now_pose.y  += orgin_pose.y;
         now_pose.th += orgin_pose.th; //init
+        now_pose.v   = 0.0;
         while(Chassis_Reader_Running){
             if(io_controller == nullptr){
                 ROS_WARN("Serial port get null");
@@ -115,6 +117,7 @@ namespace wjz_chassis{
                     now_pose.x  += v*dt*cos(now_pose.th);
                     now_pose.y  += v*dt*sin(now_pose.th);
                     now_pose.th += w*dt;
+                    now_pose.v   = v;
                     geometry_msgs::Quaternion th_q = tf::createQuaternionMsgFromYaw(now_pose.th);
 
                     geometry_msgs::TransformStamped odom_trans;
@@ -155,9 +158,10 @@ namespace wjz_chassis{
                         ROS_WARN("receive ERROR,correct it at slam node according to matching");
                     }
                     R8 dt = ros::Time::now().toSec() - pre_time;
-                    now_pose.x  += v*dt*cos(now_pose.th);
-                    now_pose.y  += v*dt*sin(now_pose.th);
-                    now_pose.th += v/wheel_base*tan(steer)*dt;
+                    now_pose.x  += now_pose.v*dt*cos(now_pose.th);
+                    now_pose.y  += now_pose.v*dt*sin(now_pose.th);
+                    now_pose.th += now_pose.v/wheel_base*tan(steer)*dt;
+                    now_pose.v  += a_e*dt;
                     geometry_msgs::Quaternion th_q = tf::createQuaternionMsgFromYaw(now_pose.th);
 
                     geometry_msgs::TransformStamped odom_trans;

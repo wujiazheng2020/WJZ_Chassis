@@ -29,6 +29,7 @@ namespace wjz_chassis{
         R8 x;
         R8 y;
         R8 th;
+        R8 v;
     };
 
     class Chassis_cpp{
