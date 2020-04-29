@@ -142,6 +142,7 @@ namespace wjz_chassis{
                     odom_now.twist.twist.linear.x  = v*cos(now_pose.th);
                     odom_now.twist.twist.linear.y  = v*sin(now_pose.th);
                     odom_now.twist.twist.angular.z = w;
+              	    odom_pub.publish(odom_now);
 
                     pre_time = ros::Time::now().toSec();
                 } else if(mode_ == Ackermann){
