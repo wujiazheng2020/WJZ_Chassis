@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: WJZ_Chassis
+Description: Description of WJZ_Chassis
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

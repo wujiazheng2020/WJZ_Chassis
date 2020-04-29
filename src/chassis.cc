@@ -158,10 +158,10 @@ namespace wjz_chassis{
                         ROS_WARN("receive ERROR,correct it at slam node according to matching");
                     }
                     R8 dt = ros::Time::now().toSec() - pre_time;
-                    now_pose.x  += now_pose.v*dt*cos(now_pose.th);
-                    now_pose.y  += now_pose.v*dt*sin(now_pose.th);
-                    now_pose.th += now_pose.v/wheel_base*tan(steer)*dt;
-                    now_pose.v  += a_e*dt;
+                    now_pose.x  += v*dt*cos(now_pose.th);
+                    now_pose.y  += v*dt*sin(now_pose.th);
+                    now_pose.th += v/wheel_base*tan(steer)*dt;
+                    now_pose.v   = v;
                     geometry_msgs::Quaternion th_q = tf::createQuaternionMsgFromYaw(now_pose.th);
 
                     geometry_msgs::TransformStamped odom_trans;
